@@ -3,197 +3,216 @@ import java.util.List;
 public class Workshop {
     public static void main(String[] args) {
 
-    }
-    public int sumarDosNumeros(int a, int b) {
-        return a+b;
-    }
+}
 
-    public int mayorDeTresNumeros(int a, int b, int c) {
-    if (a>= b && a >=c) return a{
+public int sumarDosNumeros(int a, int b) {
+    return a + b;
+}
+
+public int mayorDeTresNumeros(int a, int b, int c) {
+    if (a >= b && a >= c) {
         return a;
-    }else if (b >= c){
+    } else if (b >= c) {
         return b;
-    }else{
+    } else {
         return c;
-     }
+    }
+}
+
+public int[] tablaDeMultiplicar(int numero, int limite) {
+    int[] resultado = new int[limite];
+    for (int i = 1; i <= limite; i++) {
+        resultado[i - 1] = numero * i;
+    }
+    return resultado;
+}
+
+public int factorial(int n) {
+    int resultado = 1;
+    for (int i = 2; i <= n; i++) {
+        resultado = resultado * i;
+    }
+    return resultado;
+}
+
+public boolean esPrimo(int numero) {
+    if (numero < 2) {
+        return false;
+    }
+    for (int i = 2; i * i <= numero; i++) {
+        if (numero % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+public int[] serieFibonacci(int n) {
+    if (n < 0) {
+        System.out.println("n no puede ser negativo");
+        return new int[0];
+    }
+    int[] serie = new int[n];
+    for (int i = 0; i < n; i++) {
+        if (i == 0) {
+            serie[i] = 0;
+        } else if (i == 1) {
+            serie[i] = 1;
+        } else {
+            serie[i] = serie[i - 1] + serie[i - 2];
+        }
+    }
+    return serie;
+}
+
+public int sumaElementos(int[] arreglo) {
+    int resultado = 0;
+    for (int i = 0; i < arreglo.length; i++) {
+        resultado = resultado + arreglo[i];
+    }
+    return resultado;
+}
+
+public double promedioElementos(int[] arreglo) {
+    int suma = 0;
+    for (int i = 0; i < arreglo.length; i++) {
+        suma = suma + arreglo[i];
+    }
+    double promedio = suma / (double) arreglo.length;
+    return promedio;
+}
+
+public int encontrarElementoMayor(int[] arreglo) {
+    int mayor = arreglo[0];
+    for (int i = 1; i < arreglo.length; i++) {
+        if (arreglo[i] > mayor) {
+            mayor = arreglo[i];
+        }
+    }
+    return mayor;
+}
+
+public int encontrarElementoMenor(int[] arreglo) {
+    int menor = arreglo[0];
+    for (int i = 1; i < arreglo.length; i++) {
+        if (arreglo[i] < menor) {
+            menor = arreglo[i];
+        }
+    }
+    return menor;
+}
+
+public boolean buscarElemento(int[] arreglo, int elemento) {
+    for (int i = 0; i < arreglo.length; i++) {
+        if (arreglo[i] == elemento) {
+            return true;
+        }
+    }
+    return false;
+}
+
+public int[] invertirArreglo(int[] arreglo) {
+    int[] resultado = new int[arreglo.length];
+    int j = arreglo.length - 1;
+    for (int i = 0; i < arreglo.length; i++) {
+        resultado[i] = arreglo[j];
+        j = j - 1;
+    }
+    return resultado;
+}
+
+public int[] ordenarArreglo(int[] arreglo) {
+    int[] resultado = new int[arreglo.length];
+    for (int i = 0; i < arreglo.length; i++) {
+        resultado[i] = arreglo[i];
+    }
+    for (int i = 0; i < resultado.length; i++) {
+        for (int j = 0; j < resultado.length - 1 - i; j++) {
+            if (resultado[j] > resultado[j + 1]) {
+                int temp = resultado[j];
+                resultado[j] = resultado[j + 1];
+                resultado[j + 1] = temp;
+            }
+        }
+    }
+    return resultado;
+}
+
+    public int[] eliminarDuplicados(int[] arreglo) {
+       int[]temp=new int[arreglo.length];
+       int contador=0;
+       for (int i=0;i<areglo.length;i++){
+          boolean yaEsta=False;
+          for (int j=0;j<contador;j++){
+              if (temp[j]==arreglo[i]){
+                 yaEsta=tre;
+              }
+           }
+          if (!yaEsta){
+             temp[contador]=arreglo[i];
+             contador=contador+1;
+           }
+         }
+        int[]resultado=new int[arreglo1.length+arreglo2.length];
+        int pos=0;
+        for (int i=0;i<arreflo2.length;i++){
+            resultado[pos]=arreglo2[i];
+            pos=pos+1;
+        }
+     return resultado;
     }
 
-    public int[] tablaDeMultiplicar(int numero, int limite) {
-      int[] resultado = new int[limite];
-      for(int i; int i <= limite; i++){
-      resultado[i-1]=numero*i;
-      }
-      return new int[0];
+    public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
+        int[] resultado=new int[arreglo1.length+arreglo2.length];
+        int pos=0;
+        for (int i=0;i<arreglo1.length;i++){
+            resultado[pos]=arreglo2[i];
+            pos=pos+1;
+         }
+      return resultado;
     }
 
-    public int factorial(int n) {
-        for (int i = 2; i <= n;i++){
-        resultado = resultado*i;
-     }
+    public int[] rotarArreglo(int[] arreglo, int posiciones) {
+           int n=arreglo.length;
+           int[]resultado=new int[n];
+           for (int i=0;i<n;i++){
+               int nuevaPosicion=(i+posiciones)%n;
+               resultado[nuevaPosicion]=arreglo[i];
+           }
     return resultado;
     }
 
-    public boolean esPrimo(int numero) {
-         if (numero <2){
-         return false;
-         }
-         for (int i=2; i*i <= numero; i++){
-           if(numero % i==0){
-             return false;
-           }
-          }
-         return true;
-     }
-    public int[] serieFibonacci(int n) {
-         if(n<0){
-           System.out.println("n no puede ser negativo");
-         }
-         int [] serie = new int[n];
-         for(int i=0; i<n;i++){
-            if(i==0){
-               serie[i]=0;
-            }else if (i==1){
-               serie[i] = 1;
-            }else{
-               serie[i]=serie[i-1]+serie[i-2];
-            }
-           }
-           return serie;
-    }
-    public int sumaElementos(int[] arreglo) {
-          int resultado=0;
-          for (int i=0;i<arreglo.length;i++){
-            resultado = resultado + arreglo[i];
-          }
-          return resultado;
-    }
-
-    public double promedioElementos(int[] arreglo) {
-          int suma=0;
-          for (int i=0;i<arreglo.length;i++){
-              suma=suma+arreglo[i];
-          }
-          double promedio = suma/(double)arreglo.length;
-          return promedio;
-    }
-        
-    public int encontrarElementoMayor(int[] arreglo) {
-          int mayor=arreglo[0];
-          for (int = 1;i<arreglo.length;i++){
-            if(arreglo[i]>mayor){
-              mayor=arreglo[i];
-            }
-          }
-    return mayor;
-    }
-
-    public int encontrarElementoMenor(int[] arreglo) {
-          int menor=arreglo[0];
-          for (int = 1;i<arreglo.length;i++){
-            if(arreglo[i]<menor){
-              menor=arreglo[i];
-            }
-          }
-    return menor;
-    }
-
-    public boolean buscarElemento(int[] arreglo, int elemento) {
-           for (int i=0;<arreglo.length;i++){
-              if (arreglo[i]==elemento){
-                return true;
-              }
-           }
-    return false;
-    }
-
-    public int[] invertirArreglo(int[] arreglo) {
-           int[] resultado=new int[arreglo.length];
-           int j= arreglo.length-1;
-           for (int i=0;i<arreglo.length;i++){
-              resultado[i]=arreglo[j];
-              j=j-1;
-           }
-   return resultado;
-   }
-
-    public int[] ordenarArreglo(int[] arreglo) {
-           int[] resultado=new int[arreglo.length];
-           for (int i=0;i<arreglo.length;i++){
-               resultado [i]=arreglo[i];
-           }
-           for (int i=0;i<resultado.length;i++){
-             for (int j=0;j<resulyado.length-1-i;j++){
-               if (resultado[j]>resultado[j+1]){
-                  int temp=resultado[j];
-                  resultado[j]=resultado[j+1];
-                  resultado[j+1]=temp;
-                }
-              }
-            }
-           return resultado;
-    }
-
-    // Método que elimina los duplicados de un arreglo
-    public int[] eliminarDuplicados(int[] arreglo) {
-        // TODO: Implementar el método para eliminar los duplicados de un arreglo.
-        // Ejemplo: Si arreglo = [1, 2, 2, 3, 4, 4, 5], el resultado debería ser [1, 2, 3, 4, 5].
-        return new int[0];
-    }
-
-    // Método que combina dos arreglos en uno solo
-    public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
-        // TODO: Implementar el método para combinar dos arreglos en uno solo.
-        // Ejemplo: Si arreglo1 = [1, 2, 3, 4, 5] y arreglo2 = [6, 7, 8], el resultado debería ser [1, 2, 3, 4, 5, 6, 7, 8].
-        return new int[0];
-    }
-
-    // Método que rota un arreglo n posiciones
-    public int[] rotarArreglo(int[] arreglo, int posiciones) {
-        // TODO: Implementar el método para rotar un arreglo n posiciones.
-        // Ejemplo: Si arreglo = [1, 2, 3, 4, 5] y posiciones = 2, el resultado debería ser [3, 4, 5, 1, 2].
-        return new int[0];
-    }
-
-    // Método que cuenta los caracteres en una cadena
     public int contarCaracteres(String cadena) {
-        // TODO: Implementar el método para contar el número de caracteres en una cadena.
-        // Ejemplo: Si cadena = "Hello", el resultado debería ser 5.
-        return 0;
+           return cadena.length();
     }
 
-    // Método que invierte una cadena
     public String invertirCadena(String cadena) {
-        // TODO: Implementar el método para invertir una cadena.
-        // Ejemplo: Si cadena = "Hello", el resultado debería ser "olleH".
-        return "";
+           String resultado="";
+           for (int i=cadena.length()-1;i>=0;i-){
+           resultado=resultado+cadena.charAt(i);
+           }
+      return cadena.equals(invertida);
     }
 
-    // Método que verifica si una cadena es un palíndromo
-    public boolean esPalindromo(String cadena) {
-        // TODO: Implementar el método para verificar si una cadena es un palíndromo.
-        // Ejemplo: Si cadena = "madam", el resultado debería ser true.
-        return false;
+     public boolean esPalindromo(String cadena) {
+          String invertida="";
+          for (int i=cadena.length()-1;i>=0;i-){
+              invertida=invertida+cadena.charAt(i);
+          }
+      return cadena.equals(invertida);
     }
 
-    // Método que cuenta el número de palabras en una cadena
     public int contarPalabras(String cadena) {
-        // TODO: Implementar el método para contar el número de palabras en una cadena.
-        // Ejemplo: Si cadena = "Este es un test", el resultado debería ser 4.
-        return 0;
+           String[] partes=cadena.trim().split("");
+           return partes.length;
     }
 
-    // Método que convierte una cadena a mayúsculas
     public String convertirAMayusculas(String cadena) {
-        // TODO: Implementar el método para convertir una cadena a mayúsculas.
-        // Ejemplo: Si cadena = "hello", el resultado debería ser "HELLO".
-        return "";
+        return cadena.toUpperCase();
     }
 
-    // Método que convierte una cadena a minúsculas
     public String convertirAMinusculas(String cadena) {
-        // TODO: Implementar el método para convertir una cadena a minúsculas.
-        // Ejemplo: Si cadena = "HELLO", el resultado debería ser "hello".
-        return "";
+        return cadena.toLowerCase();
     }
 
     // Método que reemplaza una subcadena en una cadena por otra subcadena
