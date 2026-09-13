@@ -303,52 +303,111 @@ public String convertirAHexadecimal(int numero) {
     return resultado;
 }
 
-    // Método para el juego de piedra, papel, tijera, lagarto, Spock
-    public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
-        // TODO: Implementar el método para el juego de Piedra, Papel, Tijera, Lagarto, Spock.
-        // Las reglas del juego son:
-        // - Piedra vence a Tijera y Lagarto
-        // - Papel vence a Piedra y Spock
-        // - Tijera vence a Papel y Lagarto
-        // - Lagarto vence a Spock y Papel
-        // - Spock vence a Tijera y Piedra
-
-
-        // El método debe retornar un mensaje indicando el resultado del juego.
-        // Ejemplo: Si la eleccionUsuario es "Piedra", el resultado podría ser "Ganaste" o "Perdiste" dependiendo de la elección de la computadora.
-        return "";
+public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
+    int numero = (int)(Math.random() * 5);
+    String eleccionComputadora = "";
+    if (numero == 0) {
+        eleccionComputadora = "Piedra";
+    } else if (numero == 1) {
+        eleccionComputadora = "Papel";
+    } else if (numero == 2) {
+        eleccionComputadora = "Tijera";
+    } else if (numero == 3) {
+        eleccionComputadora = "Lagarto";
+    } else {
+        eleccionComputadora = "Spock";
     }
 
-    public String pptls2(String game[]) {
-        //Retornar player ganador o empate
-            /*
-            Rock = R
-            Paper = P
-            Scissors = S
-            Lizard = L
-            Spock = V
-        Scissors cuts Paper
-Paper covers Rock
-Rock crushes Lizard
-Lizard poisons Spock
-Spock smashes Scissors
-Scissors decapitates Lizard
-Lizard eats Paper
-Paper disproves Spock
-Spock vaporizes Rock
-Rock crushes Scissors
-         */
-        return "";
+    if (eleccionUsuario.equals(eleccionComputadora)) {
+        return "Empate. La computadora eligio " + eleccionComputadora;
     }
 
-    public double areaCirculo(double radio) {
-        return 0.0;
+    boolean gano = false;
+    if (eleccionUsuario.equals("Piedra") && (eleccionComputadora.equals("Tijera") || eleccionComputadora.equals("Lagarto"))) {
+        gano = true;
+    }
+    if (eleccionUsuario.equals("Papel") && (eleccionComputadora.equals("Piedra") || eleccionComputadora.equals("Spock"))) {
+        gano = true;
+    }
+    if (eleccionUsuario.equals("Tijera") && (eleccionComputadora.equals("Papel") || eleccionComputadora.equals("Lagarto"))) {
+        gano = true;
+    }
+    if (eleccionUsuario.equals("Lagarto") && (eleccionComputadora.equals("Spock") || eleccionComputadora.equals("Papel"))) {
+        gano = true;
+    }
+    if (eleccionUsuario.equals("Spock") && (eleccionComputadora.equals("Tijera") || eleccionComputadora.equals("Piedra"))) {
+        gano = true;
     }
 
-    public String zoodiac(int day, int month) {
-        return "";
+    if (gano) {
+        return "Ganaste. La computadora eligio " + eleccionComputadora;
+    } else {
+        return "Perdiste. La computadora eligio " + eleccionComputadora;
     }
-
-
 }
 
+public String pptls2(String game[]) {
+    String jugador1 = game[0];
+    String jugador2 = game[1];
+
+    if (jugador1.equals(jugador2)) {
+        return "Empate";
+    }
+
+    boolean gana1 = false;
+    if (jugador1.equals("Piedra") && (jugador2.equals("Tijera") || jugador2.equals("Lagarto"))) {
+        gana1 = true;
+    }
+    if (jugador1.equals("Papel") && (jugador2.equals("Piedra") || jugador2.equals("Spock"))) {
+        gana1 = true;
+    }
+    if (jugador1.equals("Tijera") && (jugador2.equals("Papel") || jugador2.equals("Lagarto"))) {
+        gana1 = true;
+    }
+    if (jugador1.equals("Lagarto") && (jugador2.equals("Spock") || jugador2.equals("Papel"))) {
+        gana1 = true;
+    }
+    if (jugador1.equals("Spock") && (jugador2.equals("Tijera") || jugador2.equals("Piedra"))) {
+        gana1 = true;
+    }
+
+    if (gana1) {
+        return "Jugador 1 gana";
+    } else {
+        return "Jugador 2 gana";
+    }
+}
+
+    public double areaCirculo(double radio) {
+            double area = 3.1416 * radio * radio;
+          return area;
+    }
+public String zoodiac(int day, int month) {
+    String signo = "";
+    if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) {
+        signo = "Aries";
+    } else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) {
+        signo = "Tauro";
+    } else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+        signo = "Geminis";
+    } else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) {
+        signo = "Cancer";
+    } else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
+        signo = "Leo";
+    } else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
+        signo = "Virgo";
+    } else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) {
+        signo = "Libra";
+    } else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) {
+        signo = "Escorpio";
+    } else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) {
+        signo = "Sagitario";
+    } else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) {
+        signo = "Capricornio";
+    } else if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) {
+        signo = "Acuario";
+    } else {
+        signo = "Piscis";
+    }
+    return signo;
+}
