@@ -138,125 +138,170 @@ public int[] ordenarArreglo(int[] arreglo) {
     return resultado;
 }
 
-    public int[] eliminarDuplicados(int[] arreglo) {
-       int[]temp=new int[arreglo.length];
-       int contador=0;
-       for (int i=0;i<areglo.length;i++){
-          boolean yaEsta=False;
-          for (int j=0;j<contador;j++){
-              if (temp[j]==arreglo[i]){
-                 yaEsta=tre;
-              }
-           }
-          if (!yaEsta){
-             temp[contador]=arreglo[i];
-             contador=contador+1;
-           }
-         }
-        int[]resultado=new int[arreglo1.length+arreglo2.length];
-        int pos=0;
-        for (int i=0;i<arreflo2.length;i++){
-            resultado[pos]=arreglo2[i];
-            pos=pos+1;
+ public int[] eliminarDuplicados(int[] arreglo) {
+    int[] temp = new int[arreglo.length];
+    int contador = 0;
+    for (int i = 0; i < arreglo.length; i++) {
+        boolean yaEsta = false;
+        for (int j = 0; j < contador; j++) {
+            if (temp[j] == arreglo[i]) {
+                yaEsta = true;
+            }
         }
-     return resultado;
+        if (!yaEsta) {
+            temp[contador] = arreglo[i];
+            contador = contador + 1;
+        }
     }
-
-    public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
-        int[] resultado=new int[arreglo1.length+arreglo2.length];
-        int pos=0;
-        for (int i=0;i<arreglo1.length;i++){
-            resultado[pos]=arreglo2[i];
-            pos=pos+1;
-         }
-      return resultado;
+    int[] resultado = new int[contador];
+    for (int i = 0; i < contador; i++) {
+        resultado[i] = temp[i];
     }
-
-    public int[] rotarArreglo(int[] arreglo, int posiciones) {
-           int n=arreglo.length;
-           int[]resultado=new int[n];
-           for (int i=0;i<n;i++){
-               int nuevaPosicion=(i+posiciones)%n;
-               resultado[nuevaPosicion]=arreglo[i];
-           }
     return resultado;
-    }
+}
 
-    public int contarCaracteres(String cadena) {
-           return cadena.length();
+public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
+    int[] resultado = new int[arreglo1.length + arreglo2.length];
+    int pos = 0;
+    for (int i = 0; i < arreglo1.length; i++) {
+        resultado[pos] = arreglo1[i];
+        pos = pos + 1;
     }
-
-    public String invertirCadena(String cadena) {
-           String resultado="";
-           for (int i=cadena.length()-1;i>=0;i-){
-           resultado=resultado+cadena.charAt(i);
-           }
-      return cadena.equals(invertida);
+    for (int i = 0; i < arreglo2.length; i++) {
+        resultado[pos] = arreglo2[i];
+        pos = pos + 1;
     }
+    return resultado;
+}
 
-     public boolean esPalindromo(String cadena) {
-          String invertida="";
-          for (int i=cadena.length()-1;i>=0;i-){
-              invertida=invertida+cadena.charAt(i);
-          }
-      return cadena.equals(invertida);
+public int[] rotarArreglo(int[] arreglo, int posiciones) {
+    int n = arreglo.length;
+    int[] resultado = new int[n];
+    for (int i = 0; i < n; i++) {
+        int nuevaPosicion = (i + posiciones) % n;
+        resultado[nuevaPosicion] = arreglo[i];
     }
+    return resultado;
+}
 
-    public int contarPalabras(String cadena) {
-           String[] partes=cadena.trim().split("");
-           return partes.length;
+public int contarCaracteres(String cadena) {
+    return cadena.length();
+}
+
+public String invertirCadena(String cadena) {
+    String resultado = "";
+    for (int i = cadena.length() - 1; i >= 0; i--) {
+        resultado = resultado + cadena.charAt(i);
     }
+    return resultado;
+}
 
-    public String convertirAMayusculas(String cadena) {
-        return cadena.toUpperCase();
+public boolean esPalindromo(String cadena) {
+    String invertida = "";
+    for (int i = cadena.length() - 1; i >= 0; i--) {
+        invertida = invertida + cadena.charAt(i);
     }
+    return cadena.equals(invertida);
+}
 
-    public String convertirAMinusculas(String cadena) {
-        return cadena.toLowerCase();
+public int contarPalabras(String cadena) {
+    String[] partes = cadena.trim().split("\\s+");
+    return partes.length;
+}
+
+public String convertirAMayusculas(String cadena) {
+    return cadena.toUpperCase();
+}
+
+public String convertirAMinusculas(String cadena) {
+    return cadena.toLowerCase();
+}
+
+public String reemplazarSubcadena(String cadena, String antiguaSubcadena, String nuevaSubcadena) {
+    int indice = cadena.indexOf(antiguaSubcadena);
+    if (indice == -1) {
+        return cadena;
     }
+    String antes = cadena.substring(0, indice);
+    String despues = cadena.substring(indice + antiguaSubcadena.length());
+    return antes + nuevaSubcadena + despues;
+}
 
-    // Método que reemplaza una subcadena en una cadena por otra subcadena
-    public String reemplazarSubcadena(String cadena, String antiguaSubcadena, String nuevaSubcadena) {
-        // TODO: Implementar el método para reemplazar una subcadena en una cadena por otra subcadena.
-        // Ejemplo: Si cadena = "Hello Java", antiguaSubcadena = "Java", y nuevaSubcadena = "world", el resultado debería ser "Hello world".
-        return "";
+public int buscarSubcadena(String cadena, String subcadena) {
+    int i = 0;
+    while (i <= cadena.length() - subcadena.length()) {
+        if (cadena.substring(i, i + subcadena.length()).equals(subcadena)) {
+            return i;
+        }
+        i = i + 1;
     }
+    return -1;
+}
 
-    // Método que busca una subcadena en una cadena y retorna su índice
-    public int buscarSubcadena(String cadena, String subcadena) {
-        // TODO: Implementar el método para buscar una subcadena en una cadena y retornar su índice.
-        // Ejemplo: Si cadena = "Hello world" y subcadena = "world", el resultado debería ser 6.
-        return -1;
+public boolean validarCorreoElectronico(String correo) {
+    int posArroba = -1;
+    int posPunto = -1;
+    int i = 0;
+    while (i < correo.length()) {
+        if (correo.charAt(i) == '@') {
+            posArroba = i;
+        }
+        i = i + 1;
     }
-
-    // Método que valida un correo electrónico
-    public boolean validarCorreoElectronico(String correo) {
-        // TODO: Implementar el método para validar un correo electrónico.
-        // Ejemplo: Si correo = "test@example.com", el resultado debería ser true.
+    if (posArroba == -1) {
         return false;
     }
-
-    // Método que calcula el promedio de una lista de números
-
-    public double promedioLista(List<Integer> lista) {
-        // TODO: Implementar el método para calcular el promedio de una lista de números.
-        // Ejemplo: Si lista = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
-        return 0.0;
+    i = posArroba;
+    while (i < correo.length()) {
+        if (correo.charAt(i) == '.') {
+            posPunto = i;
+        }
+        i = i + 1;
     }
-
-    // Método que convierte un número en su representación binaria
-    public String convertirABinario(int numero) {
-        // TODO: Implementar el método para convertir un número en su representación binaria.
-        // Ejemplo: Si numero = 10, el resultado debería ser "1010".
-        return "";
+    if (posPunto == -1 || posPunto < posArroba) {
+        return false;
     }
+    return true;
+}
 
-    // Método que convierte un número en su representación hexadecimal
-    public String convertirAHexadecimal(int numero) {
-        // TODO: Implementar el método para convertir un número en su representación hexadecimal.
-        // Ejemplo: Si numero = 255, el resultado debería ser "FF".
-        return "";
+public double promedioLista(List<Integer> lista) {
+    int suma = 0;
+    int i = 0;
+    while (i < lista.size()) {
+        suma = suma + lista.get(i);
+        i = i + 1;
     }
+    return suma / (double) lista.size();
+}
+
+public String convertirABinario(int numero) {
+    if (numero == 0) {
+        return "0";
+    }
+    String resultado = "";
+    int n = numero;
+    while (n > 0) {
+        int residuo = n % 2;
+        resultado = residuo + resultado;
+        n = n / 2;
+    }
+    return resultado;
+}
+
+public String convertirAHexadecimal(int numero) {
+    if (numero == 0) {
+        return "0";
+    }
+    String digitos = "0123456789ABCDEF";
+    String resultado = "";
+    int n = numero;
+    while (n > 0) {
+        int residuo = n % 16;
+        resultado = digitos.charAt(residuo) + resultado;
+        n = n / 16;
+    }
+    return resultado;
+}
 
     // Método para el juego de piedra, papel, tijera, lagarto, Spock
     public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
