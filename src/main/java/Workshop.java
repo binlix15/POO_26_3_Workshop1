@@ -18,7 +18,7 @@ public int mayorDeTresNumeros(int a, int b, int c) {
     }
 }
 
-public int[] tablaDeMultiplicar(int numero, int limite) {
+public int[] tablaMultiplicar(int numero, int limite) {
     int[] resultado = new int[limite];
     for (int i = 1; i <= limite; i++) {
         resultado[i - 1] = numero * i;
